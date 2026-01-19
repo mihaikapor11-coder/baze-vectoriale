@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chestionar Bazele Vectoriale în Construcții</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f4f4f9;
+        }
+        h1 {
+            color: #2c3e50;
+        }
+        .question {
+            margin-bottom: 15px;
+        }
+        .answers label {
+            display: block;
+            margin-bottom: 5px;
+            cursor: pointer;
+        }
+        button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        #result {
+            margin-top: 20px;
+            font-weight: bold;
+            font-size: 18px;
+        }
+    </style>
+</head>
+
+<body>
+
+<h1>Chestionar: Bazele Vectoriale în Construcții</h1>
+
+<form id="quizForm">
+
+    <div class="question">
+        <p>1. Ce este o bază vectorială?</p>
+        <div class="answers">
+            <label><input type="radio" name="q1" value="a"> Un set de vectori liniar independenți care formează un spațiu vectorial</label>
+            <label><input type="radio" name="q1" value="b"> O combinație de forțe aplicate asupra unei structuri</label>
+            <label><input type="radio" name="q1" value="c"> O metodă de calcul a momentelor</label>
+        </div>
+    </div>
+
+    <div class="question">
+        <p>2. Pentru ce sunt utilizate bazele vectoriale în construcții?</p>
+        <div class="answers">
+            <label><input type="radio" name="q2" value="a"> Pentru reprezentarea geometrică și analiza structurală</label>
+            <label><input type="radio" name="q2" value="b"> Pentru decorarea clădirilor</label>
+            <label><input type="radio" name="q2" value="c"> Pentru calculul costurilor</label>
+        </div>
+    </div>
+
+    <div class="question">
+        <p>3. Ce reprezintă axa X într-un model tridimensional al unei clădiri?</p>
+        <div class="answers">
+            <label><input type="radio" name="q3" value="a"> Lățimea clădirii</label>
+            <label><input type="radio" name="q3" value="b"> Lungimea clădirii</label>
+            <label><input type="radio" name="q3" value="c"> Înălțimea clădirii</label>
+        </div>
+    </div>
+
+    <div class="question">
+        <p>4. Cum se exprimă poziția unui punct P în planul unei fundații 2D?</p>
+        <div class="answers">
+            <label><input type="radio" name="q4" value="a"> P(x, y) = xi + yj</label>
+            <label><input type="radio" name="q4" value="b"> P(x, y) = x + y + z</label>
+            <label><input type="radio" name="q4" value="c"> P(x, y) = xi + yk</label>
+        </div>
+    </div>
+
+    <div class="question">
+        <p>5. Ce reprezintă axa Z într-un model tridimensional?</p>
+        <div class="answers">
+            <label><input type="radio" name="q5" value="a"> Lungimea clădirii</label>
+            <label><input type="radio" name="q5" value="b"> Lățimea clădirii</label>
+            <label><input type="radio" name="q5" value="c"> Înălțimea clădirii</label>
+        </div>
+    </div>
+
+    <div class="question">
+        <p>6. Care este scopul principal al utilizării bazelor vectoriale în programe precum SAP200 sau Tekla?</p>
+        <div class="answers">
+            <label><input type="radio" name="q6" value="a"> Orientarea elementelor finite și poziționarea nodurilor</label>
+            <label><input type="radio" name="q6" value="b"> Calculul costurilor materialelor</label>
+            <label><input type="radio" name="q6" value="c"> Crearea desenelor artistice</label>
+        </div>
+    </div>
+
+    <div class="question">
+        <p>7. Ce permite combinarea liniară a vectorilor dintr-o bază vectorială?</p>
+        <div class="answers">
+            <label><input type="radio" name="q7" value="a"> Descrierea oricărui punct, linie sau plan</label>
+            <label><input type="radio" name="q7" value="b"> Calculul costurilor</label>
+            <label><input type="radio" name="q7" value="c"> Stabilirea culorilor în proiectare</label>
+        </div>
+    </div>
+
+    <div class="question">
+        <p>8. Ce înseamnă că vectorii dintr-o bază vectorială sunt liniar independenți?</p>
+        <div class="answers">
+            <label><input type="radio" name="q8" value="a"> Nu pot fi exprimați ca o combinație liniară a celorlalți vectori</label>
+            <label><input type="radio" name="q8" value="b"> Sunt toți vectori nuli</label>
+            <label><input type="radio" name="q8" value="c"> Sunt vectori colineari</label>
+        </div>
+    </div>
+
+    <div class="question">
+        <p>9. Ce reprezintă formula P(x, y, z) = xi + yj + zk?</p>
+        <div class="answers">
+            <label><input type="radio" name="q9" value="a"> Poziția unui nod structural în spațiul tridimensional</label>
+            <label><input type="radio" name="q9" value="b"> Calculul costurilor</label>
+            <label><input type="radio" name="q9" value="c"> O metodă de decorare</label>
+        </div>
+    </div>
+
+    <div class="question">
+        <p>10. De ce sunt esențiale bazele vectoriale în ingineria construcțiilor?</p>
+        <div class="answers">
+            <label><input type="radio" name="q10" value="a"> Pentru verificarea stabilității și calculul structural precis</label>
+            <label><input type="radio" name="q10" value="b"> Pentru decorarea clădirilor</label>
+            <label><input type="radio" name="q10" value="c"> Pentru calculul costurilor</label>
+        </div>
+    </div>
+
+    <button type="button" onclick="checkAnswers()">Verifică răspunsurile</button>
+
+</form>
+
+<div id="result"></div>
+
+<script>
+function checkAnswers() {
+    const correctAnswers = {
+        q1: 'a', q2: 'a', q3: 'b', q4: 'a', q5: 'c',
+        q6: 'a', q7: 'a', q8: 'a', q9: 'a', q10: 'a'
+    };
+
+    let score = 0;
+
+    for (const [key, value] of Object.entries(correctAnswers)) {
+        const userAnswer = document.querySelector(`input[name="${key}"]:checked`);
+
+        // resetare culori
+        document.querySelectorAll(`input[name="${key}"]`).forEach(input => {
+            input.parentElement.style.color = "black";
+        });
+
+        if (userAnswer) {
+            if (userAnswer.value === value) {
+                score++;
+                userAnswer.parentElement.style.color = "green";
+            } else {
+                userAnswer.parentElement.style.color = "red";
+                const correctInput = document.querySelector(`input[name="${key}"][value="${value}"]`);
+                correctInput.parentElement.style.color = "green";
+            }
+        }
+    }
+
+    document.getElementById('result').textContent =
+        `Ai răspuns corect la ${score} din 10 întrebări.`;
+}
+</script>
+
+</body>
+</html>
